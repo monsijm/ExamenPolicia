@@ -111,6 +111,18 @@ public class Multa implements IMulta {
 	public double getImporte() {
 		return importe;
 	}
+	
+	public static Map<String, List<Multa>> getMulta() throws ComisariaException{
+		lanzarErrores(multas);
+		return new HashMap<>(multas);
+	}
+
+	public static void setMultas(Map<String, List<Multa>> multas) {
+		if (Shared.listadoMultasCargados != true) {
+			Shared.listadoMultasCargados = true;
+			Multa.multas = multas;
+		}
+	}
 
 	// region metodos privados
 	private static void lanzarErrores(Map<String, List<Multa>> tempMultas) throws ComisariaException {

@@ -6,7 +6,7 @@ import Errores.ComisariaException;
 
 public class PoliciaJefe extends Policia{
 
-	protected PoliciaJefe(String nombre) throws ComisariaException {
+	public PoliciaJefe(String nombre) throws ComisariaException {
 		super(RangosPolicias.J, nombre);
 		setSueldo(Shared.SUELDO_BASE + 1000);
 	}

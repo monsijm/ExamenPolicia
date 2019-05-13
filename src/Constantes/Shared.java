@@ -9,6 +9,8 @@ public class Shared {
 
 	// region Multa
 	public static int cont_multas = 99; // Contador de las multas existentes
+	public static boolean listadoMultasCargados = false; // boolean para controlar que el listado de multas se carge y
+															// cambie una unica vez
 	// endregion
 
 	// region ComisariaException

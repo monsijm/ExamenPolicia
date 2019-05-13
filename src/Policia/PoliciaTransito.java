@@ -10,7 +10,7 @@ import Multa.Multa;
 
 public class PoliciaTransito extends Policia implements IPoliciaTransito {
 
-	protected PoliciaTransito(String nombre) throws ComisariaException {
+	public PoliciaTransito(String nombre) throws ComisariaException {
 		super(RangosPolicias.T, nombre);
 
 	}

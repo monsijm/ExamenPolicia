@@ -9,6 +9,8 @@ import Constantes.Shared;
 import Errores.ComisariaException;
 import Interfaces.IComisaria;
 import Policia.Policia;
+import Policia.PoliciaTransito;
+import Multa.Multa;
 
 public class ComisariaPolicia implements IComisaria {
 
@@ -48,8 +50,24 @@ public class ComisariaPolicia implements IComisaria {
 
 	@Override
 	public String mostrarTodosPoliciasYMultasOrdenadoPorCodigo() throws ComisariaException {
-		// TODO Auto-generated method stub
-		return null;
+		StringBuffer sb = new StringBuffer();
+		Iterator<Policia> ite = comisaria.iterator();
+
+		lanzarExceptions();
+
+		while (ite.hasNext()) {
+			Policia policia = (Policia) ite.next();
+			sb.append(policia + "\n");
+			if (policia instanceof PoliciaTransito) {
+				sb.append("--Multas--\n");
+				Iterator<Multa> listadoMultas = Multa.listadoMultas(policia.getCodigo()).iterator();
+				while (listadoMultas.hasNext()) {
+					sb.append(listadoMultas.next() + "\n");
+				}
+			}
+		}
+
+		return sb.toString();
 	}
 
 	@Override
@@ -78,6 +96,18 @@ public class ComisariaPolicia implements IComisaria {
 			if (policia.getCodigo().charAt(0) == 'T') {
 				sb.append(policia.toString() + "\n");
 			}
+		}
+
+		return sb.toString();
+	}
+
+	@Override
+	public String toString() {
+		StringBuffer sb = new StringBuffer();
+		Iterator<Policia> ite = comisaria.iterator();
+
+		while (ite.hasNext()) {
+			sb.append(ite.next().toString() + "\n");
 		}
 
 		return sb.toString();
