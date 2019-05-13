@@ -48,19 +48,10 @@ public abstract class Policia {
 
 	private String convertirCodigo(RangosPolicias cod) throws ComisariaException {
 		StringBuffer temp = new StringBuffer();
-
-		switch (cod) {
-		case J:
-			temp.append("J - " + (++Shared.cont_policias));
-			break;
-		case A:
-			temp.append("A - " + (++Shared.cont_policias));
-			break;
-		case T:
-			temp.append("T - " + (++Shared.cont_policias));
-			break;
-		default:
-			throw new ComisariaException(Shared.DEFUALT_ERR_RANGEPOLICE,"Rango no Valido");
+		if (cod != null) {
+			temp.append(cod.name() + " - " + (++Shared.cont_policias));
+		} else {
+			throw new ComisariaException(Shared.DEFUALT_ERR_RANGEPOLICE, "Rango no Valido");
 		}
 
 		return temp.toString();
