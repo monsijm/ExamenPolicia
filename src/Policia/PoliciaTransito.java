@@ -26,7 +26,7 @@ public class PoliciaTransito extends Policia implements IPoliciaTransito {
 		}
 		
 		setSueldo(Shared.SUELDO_BASE + auxSueldo);
-		
+
 		return actualizado;
 	}
 

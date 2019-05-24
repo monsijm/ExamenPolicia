@@ -4,7 +4,6 @@ import Comisaria.ComisariaPolicia;
 import EntradaTeclado.LeerTeclado;
 import Errores.ComisariaException;
 import Interfaces.IComisaria;
-import Policia.PoliciaTransito;
 
 public class Aplicacion {
 

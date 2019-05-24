@@ -6,9 +6,9 @@ import Errores.ComisariaException;
 
 public abstract class Policia {
 
-	protected String codigo = "";
-	protected String nombre = "";
-	protected double sueldo = Shared.SUELDO_BASE;
+	private String codigo = "";
+	private String nombre = "";
+	private double sueldo = Shared.SUELDO_BASE;
 
 	protected Policia(RangosPolicias codigo, String nombre) throws ComisariaException {
 		this.codigo = convertirCodigo(codigo);
